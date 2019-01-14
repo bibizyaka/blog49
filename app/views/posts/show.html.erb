@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+
+<table>
+<thead>
+  <strong>Post:</strong>
+</thead>
+<tbody>
+	<tr>
+	  <td><%= @post.content %></td>
+	</tr>
+</tbody>
+</table>
+<p>
+  <table>
+    <thead>
+      <strong>Comments:</strong>
+    </thead>
+	<tbody>
+
+	   <% @post.comments.each do |comment| %>
+     
+	      <tr>
+	      	<td><%=comment.content %></td>
+	      	<td><strong>created:</strong></td><td><%=comment.created_at %></td>
+	      </tr>
+
+        <% end %>
+	</tbody>
+</table>
+</p>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %> | 
+<%= link_to 'Add Comment', '/comments/new' %>
